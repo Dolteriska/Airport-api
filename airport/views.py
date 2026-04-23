@@ -250,9 +250,11 @@ class OrderViewSet(viewsets.ModelViewSet):
         return [IsAdminOrIfAuthenticatedReadOnly()]
 
     def get_queryset(self):
-        queryset = self.queryset
+        queryset = Order.objects.all()
+
         if not self.request.user.is_staff:
-            return queryset.filter(user=self.request.user)
+            queryset = queryset.filter(user=self.request.user)
+
         return queryset
 
     def get_serializer_class(self):
@@ -294,7 +296,7 @@ class OrderViewSet(viewsets.ModelViewSet):
 )
 @extend_schema(tags=["Tickets"])
 class TicketViewSet(viewsets.ModelViewSet):
-    queryset = Ticket.objects.select_related("flight__route", "order__user")
+    queryset = Ticket.objects.all()
 
     def get_permissions(self):
         if not self.request.user.is_staff and self.action == "create":
@@ -303,8 +305,10 @@ class TicketViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         queryset = self.queryset
+
         if not self.request.user.is_staff:
             queryset = queryset.filter(order__user=self.request.user)
+
         return queryset
 
     def perform_create(self, serializer):
