@@ -81,7 +81,14 @@ Authenticated users: 1000 requests/day.
 Registration: 3 attempts/minute.
 
 ### Screenshots
-* airplane list : 
-*
-*
-*
+* airplane list: ![airplane list](screenshots/airplane_list.jpeg)
+* airport list: ![airport list](screenshots/airport_list.jpeg)
+* crew list: ![crew list](screenshots/crew_list.jpeg)
+* flight list: ![flight list](screenshots/flight_list.jpeg)
+* flight assign crew: ![flight assign crew](screenshots/flight_id_assign_crew.jpeg)
+* order list: ![order list](screenshots/order_list.jpeg)
+* route list: ![route list](screenshots/route_list.jpeg)
+* ticket list: ![ticket list](screenshots/ticket_list.jpeg)
+
+## **Note**
+All screenshots were taken from perspective of admin/staff. API can look different for normal users
