@@ -1,6 +1,10 @@
 ﻿#  Airport API Service
 
-A robust RESTful API for managing airport operations, flight scheduling, ticket bookings, and crew assignments. Built with **Django REST Framework** and fully **Dockerized**.
+## Airport DB Structure
+<img width="981" height="1039" alt="Airport_APi_png drawio" src="https://github.com/user-attachments/assets/6fc8d126-59c3-4c34-a95b-37025911724f" />
+
+
+# A robust RESTful API for managing airport operations, flight scheduling, ticket bookings, and crew assignments. Built with **Django REST Framework** and fully **Dockerized**.
 
 ##  Features
 
