@@ -33,6 +33,13 @@ class AirplaneTypeSerializer(serializers.ModelSerializer):
         fields = ("id", "name")
 
 
+class OccupationSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Occupation
+        fields = ("id", "name")
+
+
 class AirplaneSerializer(serializers.ModelSerializer):
     airplane_type =\
         serializers.SlugRelatedField(many=False,

@@ -14,7 +14,7 @@ from airport.models import (Crew,
                             Airplane,
                             Flight,
                             Order,
-                            Route, Ticket, AirplaneType
+                            Route, Ticket, AirplaneType, Occupation
                             )
 from airport.permissions import IsAdminOrIfAuthenticatedReadOnly
 from rest_framework.permissions import IsAdminUser, IsAuthenticated
@@ -33,7 +33,7 @@ from airport.serializers import (
     AdminOrderSerializer,
     TicketDetailSerializer,
     TicketListSerializer,
-    AirplaneTypeSerializer
+    AirplaneTypeSerializer, OccupationSerializer
 )
 
 
@@ -46,6 +46,18 @@ from airport.serializers import (
 class CrewViewSet(viewsets.ModelViewSet):
     queryset = Crew.objects.all()
     serializer_class = CrewSerializer
+    permission_classes = (IsAdminUser, )
+
+
+@extend_schema(
+    tags=["Occupation Management"],
+    description="**RESTRICTED**:"
+                " Operations with occupations are only"
+                " available for staff/admin users."
+)
+class OccupationViewSet(viewsets.ModelViewSet):
+    queryset = Occupation.objects.all()
+    serializer_class = OccupationSerializer
     permission_classes = (IsAdminUser, )
 
 
