@@ -41,15 +41,16 @@ class OccupationSerializer(serializers.ModelSerializer):
 
 
 class AirplaneSerializer(serializers.ModelSerializer):
-    airplane_type =\
-        serializers.SlugRelatedField(many=False,
-                                     queryset=AirplaneType.objects.all(),
-                                     slug_field="name")
+    airplane_type = serializers.SlugRelatedField(
+        many=False,
+        queryset=AirplaneType.objects.all(),
+        slug_field="name"
+    )
 
     class Meta:
         model = Airplane
-        fields = ("id", "name", "capacity", "airplane_type", "image")
-        read_only_fields = ("image", )
+        fields = ("id", "name", "rows", "seats_in_row", "capacity", "airplane_type", "image")
+        read_only_fields = ("id", "image", "capacity")
 
 
 class AirplaneImageSerializer(serializers.ModelSerializer):
